@@ -1,0 +1,150 @@
+.result {
+  background-color: #000;
+
+  &__place {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  &__place-first {
+    position: relative;
+    z-index: 10;
+    svg {
+      position: absolute;
+    }
+  }
+
+  &__place-first-image-block {
+    width: 70%;
+    position: relative;
+    padding-left: 40%;
+    z-index: -1;
+  }
+
+  &__place-first-gradient {
+    width: 100%;
+    position: absolute;
+    height: 120%;
+    right: 50%;
+    transform: translateX(50%);
+    background-image: radial-gradient(50% 50% at center,#ff8f00 1%,transparent 100%);
+    z-index: -1;
+  }
+
+
+  &__place-first-info {
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 5%;
+  }
+
+  &__place-first-title {
+    color: #ff8f00;
+    margin-bottom: 15%;
+  }
+
+  &__place-first-name {
+    color: #ffffff;
+  }
+
+
+  &__place-second {
+    position: relative;
+    z-index: 20;
+    svg {
+      position: absolute;
+      z-index: -1;
+    }
+  }
+
+
+  &__place-second-info {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+  }
+
+  &__place-second-title {
+    color: #ff8f00;
+    margin-bottom: 10%;
+  }
+
+  &__place-second-name {
+    color: #ffffff;
+  }
+
+  &__place-second-image-block {
+    width: 30%;
+    padding: 0 5%;
+    position: relative;
+    transform: translateY(-10%)
+  }
+
+  &__place-second-gradient {
+    width: 140%;
+    position: absolute;
+    height: 120%;
+    right: 50%;
+    transform: translateX(50%);
+    background-image: radial-gradient(50% 50% at center,#727170 1%,transparent 100%);
+    z-index: -1;
+  }
+
+
+  &__place-third {
+    position: relative;
+    z-index: 20;
+    svg {
+      position: absolute;
+      z-index: -1;
+    }
+  }
+
+
+  &__place-third-info {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 8%;
+    width: 50%;
+  }
+
+  &__place-third-title {
+    color: #ff8f00;
+    margin-bottom: 10%;
+  }
+
+  &__place-third-name {
+    color: #ffffff
+  }
+
+  &__place-third-image-block {
+    width: 30%;
+    padding: 0 10%;
+    margin-left: auto;
+    position: relative;
+    transform: translateY(-10%);
+  }
+
+  &__place-third-gradient {
+    width: 140%;
+    position: absolute;
+    height: 120%;
+    right: 50%;
+    transform: translateX(50%);
+    background-image: radial-gradient(50% 50% at center,#ff8f00 1%,transparent 100%);
+    z-index: -1;
+  }
+}

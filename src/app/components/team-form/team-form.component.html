@@ -1,0 +1,168 @@
+<div class="team-form">
+  <div class="team-form__container">
+    <form #myForm="ngForm" (ngSubmit)="submit()">
+      <div class="team-form__inner">
+        <table class="team-form__table table">
+          <thead class="table__header">
+            <th class="table__item">Команда</th>
+            <th class="table__item">Результаты</th>
+            <th class="table__item"></th>
+            <th class="table__item">Место</th>
+          </thead>
+          <tbody class="table__body">
+            <tr
+              class="table-row"
+              *ngFor="let team of teamsService.teams; let i = index"
+            >
+              <td class="table-row__name">
+                <input
+                  [ngClass]="{'table-row__input--disabled': matchsService.inputDisabled}"
+                  class="table-row__input"
+                  type="text"
+                  name="item{{ team.id }}"
+                  #Team="ngModel"
+                  placeholder="Введите имя"
+                  [(ngModel)]="team.name"
+                  (ngModelChange)="onChangeName()"
+                  required
+                />
+              </td>
+              <td class="table-row__results">
+                <div
+                  class="table-row__result"
+                  *ngFor="let results of team.result"
+                >
+                  <div class="table-row__cell" *ngIf="results.chess">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      xmlns:xlink="http://www.w3.org/1999/xlink"
+                      width="89"
+                      height="89"
+                      viewBox="0 0 89 89"
+                    >
+                      <image
+                        id="Слой_5_копия_5"
+                        data-name="Слой 5 копия 5"
+                        width="89"
+                        height="89"
+                        xlink:href="data:img/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFkAAABZCAYAAABVC4ivAAACGUlEQVR4nO2cy47CQBADm/x4Pn25gMRCApl+ORl7TnvAKsaKtFIR+bauq72cv8efNxs/kawB2eXZ5QRfFMluyT5LVsGF2UUF12efT7IKLswuKrg+uxz4TOYXjeavmB0uWQU78iMlq2Bn/mjJKjiQP1KyCg7mf5WsghPy30pWwUn5vZJVcGJ+q2QVnJx/L1kFF+SzVGc0P23BlqQ6o/mpC7YE1TkEmyQ7fOeI6hyGTZB13dmrOl2wi2fdd/aoTjfswtnQnbt98vT/5LaynT6ZsmAbfJJVsDPb4ZOpC7aDT7IKDmYrfbIKfpwqn6yCX06FT1bBbyfbJ6vgjZPpk1XwzjnDq7NTF2wneHV2+oIN/OosRcEGfHWWpmADvTpLVbARqU4km0J1ItkUqhPJplCdSDaF6kSyKVQnkk2hOpFsCtWJZFOoTiSbQnUi2RSqE8mmUJ1INoXqRLIpVCeSTaE6kWwK1YlkU6hOJJtCdSLZFKoTyaZQnUg2hepEsilUJ5JNoTqRbArViWRTqE4km0J1ItkUqhPJplCd0bxUZ3FeqrM4L9VZnL/krzgaRK3N2qhPVsHOvAZRa7L/2BpEzc9+sDWImpvdZGsQNS+7y9Ygak72K1uDqPHsT7YGURvurEFUf/ZwXoOoDXfWIKrvDPvkNtgEWdedNYjakNcgakNeg6gNbA2iNrA1iNrA1iBqA1uDqA1sDaJWs83sDqlOCE3GqoelAAAAAElFTkSuQmCC"
+                      />
+                    </svg>
+                  </div>
+                  <div
+                    *ngIf="
+                      results.firstTeamScore > results.secondTeamScore &&
+                      !results.chess
+                    "
+                    class="table-row__number table-row__number--win"
+                  >
+                    <span class="table-row__first-number">{{
+                      results.firstTeamScore
+                    }}</span>
+                    <span class="table-row__second-number">{{
+                      results.secondTeamScore
+                    }}</span>
+                  </div>
+                  <div
+                    *ngIf="
+                      results.firstTeamScore < results.secondTeamScore &&
+                      !results.chess
+                    "
+                    class="table-row__number table-row__number--loose"
+                  >
+                    <span class="table-row__first-number">{{
+                      results.firstTeamScore
+                    }}</span>
+                    <span class="table-row__second-number">{{
+                      results.secondTeamScore
+                    }}</span>
+                  </div>
+                  <div
+                    *ngIf="
+                      results.firstTeamScore === results.secondTeamScore &&
+                      !results.chess
+                    "
+                    class="table-row__number results__number--draw"
+                  >
+                    <span class="table-row__first-number">{{
+                      results.firstTeamScore
+                    }}</span>
+                    <span class="table-row__second-number">{{
+                      results.secondTeamScore
+                    }}</span>
+                  </div>
+                </div>
+              </td>
+              <td class="table-row__scores">
+                <div *ngIf="team.goal !== null" class="team-form-item__goal">
+                  {{ team.goal }}
+                </div>
+                <div *ngIf="team.goal === null" class="team-form-item__goal">
+                  -
+                </div>
+              </td>
+              <td class="table-row__place">
+                <div *ngIf="team.place !== 0" class="team-form-item__place">
+                  {{ team.place }}
+                </div>
+                <div *ngIf="team.place === 0" class="team-form-item__place">
+                  -
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="table-row__btns">
+          <button type="button" (click)="teamNameAdd()" class="table-row__add" [ngClass]="{'table-row__add--invisible': matchsService.addBtn}">
+            Добавить +1
+          </button>
+          <button
+            type="button"
+            *ngIf="teamsService.teams.length > 3"
+            (click)="teamNameDelete()"
+            class="table-row__delete"
+            [ngClass]="{'table-row__delete--invisible': matchsService.deleteBtn}"
+          >
+            Убрать -1
+          </button>
+        </div>
+      </div>
+      <div class="team-form__btn-case">
+        <button
+          [disabled]="myForm.invalid || btnDisabled"
+          [ngClass]="{
+            'team-form__btn--disabled': myForm.invalid || btnDisabled
+          }"
+          type="submit"
+          class="team-form__btn"
+        >
+          <span
+            [ngClass]="{
+              'team-form__btn-text--disabled': myForm.invalid || btnDisabled
+            }"
+            class="team-form__btn-text"
+            >Старт!</span
+          >
+          <svg
+            version="1.2"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 745 156"
+            width="745"
+            height="156"
+          >
+            <defs>
+              <image
+                width="745"
+                height="156"
+                id="img1"
+                href="data:image/png;base64,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"
+              />
+            </defs>
+            <style></style>
+            <use href="#img1" x="-1" y="0" />
+          </svg>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

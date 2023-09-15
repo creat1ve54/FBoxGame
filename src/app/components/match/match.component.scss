@@ -1,0 +1,159 @@
+.match {
+  &__group {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    &--active {
+      padding-bottom: 100px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 0;
+  }
+
+  &__game {
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__svg-border-team {
+    position: absolute;
+    max-width: 100%;
+    &--left {
+      top: 0;
+      left: 0;
+    }
+    &--right {
+      top: 0;
+      right: 0;
+    }
+    &--invisible {
+      display: none;
+    }
+  }
+
+  &__colon {
+    font-size: 84px;
+    color: #fff;
+  }
+  &__case-team {
+    flex: 1;
+    position: relative;
+    &--left {
+      text-align: left;
+      padding: 34px 0px 34px 24px;
+      &--no-active {
+        text-align: right;
+      }
+    }
+    &--right {
+      &--no-active {
+        text-align: left;
+      }
+      text-align: right;
+      padding: 34px 24px 34px 0px;
+    }
+  }
+
+  &__final-score {
+    color: #fff;
+    width: 40px;
+    text-align: center;
+
+    &--invisible {
+      display: none;
+    }
+  }
+
+  &__team-name {
+    color: #7a7878;
+    min-width: 150px;
+    &--active {
+      color: white;
+    }
+  }
+
+  &__score {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border: inherit;
+    outline: none;
+    &--one {
+      bottom: -20px;
+      right: 0;
+    }
+
+    &--two {
+      bottom: -20px;
+      left: 0;
+    }
+  }
+
+  &__input-case {
+    position: absolute;
+
+    &--left {
+      bottom: -32px;
+      right: 52px;
+      svg {
+        position: absolute;
+        bottom: -57px;
+        right: -40px;
+      }
+    }
+    &--right {
+      bottom: -32px;
+      left: 52px;
+      svg {
+        position: absolute;
+        bottom: -57px;
+        left: -40px;
+      }
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: 0px;
+    right: -93px;
+    border: inherit;
+    padding: 0;
+    background-color: inherit;
+    cursor: inherit;
+    pointer-events: none;
+
+    &--ready {
+      cursor: pointer;
+      pointer-events: inherit;
+    }
+  }
+
+  &__third {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 100px;
+  }
+  &__first {
+    position: relative;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding-bottom: 100px;
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

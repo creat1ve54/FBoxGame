@@ -1,0 +1,242 @@
+.team-form {
+  &__inner {
+    overflow: auto;
+  }
+  &__btn-case {
+    margin-top: 70px;
+    max-width: 600px;
+  }
+  &__btn {
+    position: relative;
+    border: none;
+    background-color: none;
+    svg {
+      width: 100%;
+    }
+  }
+  &__btn-text {
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &--disabled {
+      color: #7a7878 ;
+    }
+  }
+  &__btn {
+    background-color: inherit;
+    cursor: pointer;
+    &--disabled {
+      cursor: inherit;
+      border: inherit;
+      .hexagon {
+        cursor: auto;
+      }
+
+      .hexagon .center {
+        background: #706e6e;
+        color: #fcfafa;
+      }
+
+      .hexagon .l {
+        border-right-color: #706e6e;
+      }
+
+      .hexagon .r {
+        border-left-color: #706e6e;
+      }
+    }
+  }
+}
+
+.table {
+  width: 100%;
+  border-spacing: 0;
+  margin-bottom: 70px;
+
+  &__item {
+    text-align: left;
+    padding: 20px 0;
+    border-bottom: 1px solid white;
+    font-weight: 400;
+    color: #7a7878;
+  }
+  &__item:last-child {
+    text-align: center;
+  }
+  &__item:first-child {
+    padding-right: 30px;
+    position: sticky;
+    left: 0;
+    z-index: 1000;
+    background-color: #000;
+  }
+}
+
+.table-row {
+  height: 90px;
+  td {
+    padding: 5px;
+    border-bottom: 1px solid #ffffff;
+  }
+  &__name {
+    position: sticky;
+    left: -4px;
+    z-index: 1000;
+    padding-right: 50px;
+    max-width: 180px;
+    background-color: #000;
+  }
+
+  &__input {
+    background: none;
+    border: none;
+    outline: none;
+    color: #ff8f00;
+    line-height: 44px;
+    font-weight: 600;
+    width: 100%;
+    &--disabled {
+      pointer-events: none;
+    }
+  }
+
+  &__scores {
+    text-align: center;
+    color: #7a7878;
+  }
+  &__place {
+    text-align: center;
+    color: white;
+  }
+
+  &__add {
+    color: #fff;
+    line-height: 44px;
+    background: none;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-bottom: 1px solid #fff;
+    margin-right: 10px;
+    &--invisible {
+      display: none;
+    }
+  }
+  &__delete {
+    color: #fff;
+    line-height: 44px;
+    background: none;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-bottom: 1px solid #fff;
+    &--invisible {
+      display: none;
+    }
+  }
+
+  &__results {
+    padding: 5px;
+    gap: 4px;
+    display: flex;
+    min-height: 89px;
+  }
+
+  &__result {
+    width: 89px;
+    height: 89px;
+  }
+
+  &__number {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 10px;
+    height: 69px;
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 42px;
+      height: 100%;
+      width: 2px;
+      background-color: #fff;
+      transform: rotate(45deg);
+    }
+    &--win {
+      background: linear-gradient(90deg, #65aa0a 70%, #97cf03 150%);
+    }
+
+    &--loose {
+      background: linear-gradient(90deg, #b43908 70%, #cf6603 150%);
+    }
+  }
+  &__first-number {
+    font-size: 18px;
+    color: white;
+    text-align: left;
+  }
+  &__second-number {
+    font-size: 18px;
+    color: white;
+    text-align: right;
+  }
+}
+
+
+.hexagon {
+  cursor: pointer;
+  width: 400px;
+}
+
+.hexagon .l {
+  border-color: transparent #ff7700 transparent transparent;
+  border-style: solid;
+  border-width: 43px 30px 43px 0;
+  display: block;
+  float: left;
+  height: 0;
+  width: 0;
+}
+
+.hexagon .r {
+  border-color: transparent transparent transparent #ff7700;
+  border-style: solid;
+  border-width: 43px 0 43px 30px;
+  display: block;
+  float: right;
+  height: 0;
+  width: 0;
+}
+
+.hexagon .center {
+  background: #ff7600;
+  border: 0;
+  color: #706e6e;
+  display: block;
+  float: left;
+  font-size: 14px;
+  font-weight: 600;
+  height: 86px;
+  line-height: 86px;
+  overflow: hidden;
+  text-align: center;
+  text-transform: uppercase;
+  width: calc(100% - 60px);
+}
+
+.hexagon:hover .l {
+  border-right-color: #b75500;
+}
+
+.hexagon:hover .r {
+  border-left-color: #b75500;
+}
+
+.hexagon:hover .center {
+  background: #b75500;
+}
+

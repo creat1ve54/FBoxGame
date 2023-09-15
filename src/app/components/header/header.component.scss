@@ -1,0 +1,117 @@
+.header {
+  padding: 20px 0;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__popup {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: flex-start;
+    right: 0px;
+    top: 0px;
+    z-index: 1001;
+    padding: 345px 200px 100px 90px;
+    gap: 80px;
+    background: linear-gradient(
+      0deg,
+      rgba(247, 148, 43, 0.95),
+      rgba(255, 202, 9, 0.95)
+    );
+  }
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: 400;
+  }
+
+  &__logo {
+    color: #fff;
+    font-weight: 900;
+    font-size: 108px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    margin-right: 10px;
+    font-size: 18px;
+    color: rgb(206, 111, 23);
+    text-decoration: none;
+  }
+  &__item:last-child {
+    margin-right: inherit;
+  }
+  &__lines {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    &--active {
+      top: 59%;
+    }
+  }
+
+  &__line {
+    width: 80px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 0px;
+
+    &--delete {
+      opacity: 0;
+      transition: all 0.1s ease-in-out;
+    }
+
+    &--left {
+      position: absolute;
+      transform: rotate(45deg);
+      transition: all 0.3s ease-in-out;
+    }
+
+    &--right {
+      position: absolute;
+      transform: rotate(-45deg);
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  &__line:nth-child(2) {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  &__menu {
+    position: relative;
+    cursor: pointer;
+    &--open {
+      z-index: 1002;
+    }
+    &--bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}
